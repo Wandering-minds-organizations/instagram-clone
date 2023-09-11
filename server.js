@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const MovieController = require('./controllers/movie-controller')
 const UserController = require('./controllers/user-controller')
 const middleware = require('./middlewares/checkAuthUser')
 const dotenv = require('dotenv')
@@ -20,5 +19,4 @@ app.listen(process.env.PORT, ()=> {
 })
 
 
-app.get('/', middleware.checkAuthUser, MovieController.getAllMovie)
 app.post('/register', UserController.register)
