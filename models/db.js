@@ -1,10 +1,17 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 
-const db = mongoose.connect('mongodb://127.0.0.1:27017/instagram').then(() => {
+dotenv.config()
+
+const user = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+
+const db = mongoose.connect(`mongodb+srv://${user}:${password}@cluster0.lhxpbih.mongodb.net/?retryWrites=true&w=majority`).then(() => {
     console.log('Succeefully connected')
 }).catch(err => {
     console.error(err)
 })
 
 module.exports = db
+
 
